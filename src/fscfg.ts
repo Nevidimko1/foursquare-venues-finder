@@ -5,7 +5,7 @@ const categoryIds = [
 
 export const fscfg = {
     url: "https://api.foursquare.com/v2/venues/search?",
-    country: 'Riga',
+    country: 'Italy',
     params: {
         categoryId: categoryIds[0],
         radius: 100000,

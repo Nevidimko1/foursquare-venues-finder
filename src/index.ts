@@ -2,22 +2,13 @@ import * as fs from 'fs';
 
 import { CountryDetailsService } from './services/countryDetails.service';
 import { VenuesListService } from './services/venuesList.service';
+import { FileUtils } from './utils/file.utils';
 import { fscfg } from './fscfg';
-
-const readJsonSync = <T>(url: string): T => {
-    let data: T = null;
-    try {
-        data = JSON.parse(fs.readFileSync(url).toString());
-    }
-    catch (e) {}
-
-    return data;
-}
 
 const checkAndUpdate = (venues: any[]): Promise<any> => {
     try {
         // Read used.json
-        const used: any[] = readJsonSync('./data/used.json') || [];
+        const used: any[] = FileUtils.readOrCreateSync('./data/used.json', []);
     
         // Filter new venues
         var newVenues: any[] = [];
@@ -29,7 +20,7 @@ const checkAndUpdate = (venues: any[]): Promise<any> => {
         });
 
         // Update free.json
-        let freeFileContent: any[] = readJsonSync('./data/free.json') || [];
+        let freeFileContent: any[] = FileUtils.readOrCreateSync('./data/free.json', [])
         freeFileContent = [
             ...freeFileContent.filter((venue: any) => used.indexOf(venue.id) === -1),
             ...newVenues.map(venue => ({
