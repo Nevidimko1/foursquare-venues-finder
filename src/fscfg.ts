@@ -8,8 +8,8 @@ export const fscfg = {
     params: {
         categoryId: categoryIds[0],
         radius: 100000,
-        client_id: "",
-        client_secret: "",
+        client_id: "",      // Foursquare API client_id
+        client_secret: "",  // Foursquare API client_secret
         v: 20190212
     }
 };
