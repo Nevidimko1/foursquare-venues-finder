@@ -1,6 +1,8 @@
+import * as fs from 'fs';
+
 import { CountryDetailsService } from './services/countryDetails.service';
 import { VenuesListService } from './services/venuesList.service';
-import * as fs from 'fs';
+import { fscfg } from './fscfg';
 
 const readJsonSync = <T>(url: string): T => {
     let data: T = null;
@@ -51,7 +53,7 @@ const checkAndUpdate = (venues: any[]): Promise<any> => {
 const countryDetailsService = new CountryDetailsService(),
     venuesListService = new VenuesListService();
 
-countryDetailsService.getCountryDetails('Latvia')
+countryDetailsService.getCountryDetails(fscfg.country)
     .then(details => {
         const minLat = Math.trunc(Math.min(details.bounds.ne.lat, details.bounds.sw.lat)),
             maxLat = Math.ceil(Math.max(details.bounds.ne.lat, details.bounds.sw.lat)),
