@@ -2,7 +2,7 @@ import * as querystring from 'querystring';
 import { ICountryDetails } from '../core/models/countryDetails.model';
 import { Api } from '../core/api';
 
-import { fscfg } from '../fscfg';
+import { fscfg } from '../cfg';
 
 export class CountryDetailsService {
     

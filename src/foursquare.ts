@@ -3,12 +3,12 @@ import * as fs from 'fs';
 import { CountryDetailsService } from './services/countryDetails.service';
 import { VenuesListService } from './services/venuesList.service';
 import { FileUtils } from './utils/file.utils';
-import { fscfg } from './fscfg';
+import { fscfg, files } from './cfg';
 
 const checkAndUpdate = (venues: any[]): Promise<any> => {
     try {
         // Read used.json
-        const used: any[] = FileUtils.readOrCreateSync('./data/used.json', []);
+        const used: string[] = FileUtils.readOrCreateSync(files.used, []);
     
         // Filter new venues
         var newVenues: any[] = [];
@@ -20,7 +20,7 @@ const checkAndUpdate = (venues: any[]): Promise<any> => {
         });
 
         // Update free.json
-        let freeFileContent: any[] = FileUtils.readOrCreateSync('./data/free.json', [])
+        let freeFileContent: any[] = FileUtils.readOrCreateSync(files.free, [])
         freeFileContent = [
             ...freeFileContent.filter((venue: any) => used.indexOf(venue.id) === -1),
             ...newVenues.map(venue => ({
@@ -32,7 +32,7 @@ const checkAndUpdate = (venues: any[]): Promise<any> => {
                 }
             }))
         ];
-        fs.writeFileSync('./data/free.json', JSON.stringify(freeFileContent, null, 4));
+        fs.writeFileSync(files.free, JSON.stringify(freeFileContent, null, 4));
 
         return Promise.resolve(newVenues);
     }

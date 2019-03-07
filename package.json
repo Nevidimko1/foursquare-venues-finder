@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "foursquare": "ts-node src/foursquare.ts",
+    "landlord": "ts-node src/landlord.ts"
   },
   "keywords": [],
   "author": "",

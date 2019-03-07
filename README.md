@@ -10,8 +10,9 @@ Find foursquare venues by country and categoryId
 ## Usage
 
 ```sh
-2) Update src/fscfg.ts file
-3) npm run start
+2) Update tokens in src/fscfg.ts file
+3) npm run foursquare
+3) npm run landlord
 ```
 
 ./data/free.json will contain list of venues (id, name, location). Ex.

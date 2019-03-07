@@ -1,7 +1,7 @@
 import * as querystring from 'querystring';
 import { Api } from '../core/api';
 import { ILocation } from '../core/models/location.model';
-import { fscfg } from '../fscfg';
+import { fscfg } from '../cfg';
 
 export class VenuesListService {
     
