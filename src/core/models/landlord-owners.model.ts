@@ -10,7 +10,7 @@ export interface IOwnersResponse {
     code: number;
   },
   response: {
-      fsVenueId: string;
-      owners: IOwner[];
+    fsVenueId: string;
+    owners: IOwner[];
   }
 }
