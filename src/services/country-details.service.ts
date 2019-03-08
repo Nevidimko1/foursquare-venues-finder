@@ -1,6 +1,6 @@
 import * as querystring from 'querystring';
 
-import { ICountryDetails } from '../core/models/countryDetails.model';
+import { ICountryDetails } from '../core/models/country-details.model';
 import { Api } from '../core/api';
 import { fscfg } from '../cfg';
 

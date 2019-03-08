@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 import { FileUtils } from './utils/file.utils';
-import { LandlordFilterService } from './services/landlordFilter.service';
+import { LandlordFilterService } from './services/landlord-filter.service';
 import { IVenue } from './core/models/venue.model';
 import { files } from './cfg';
 

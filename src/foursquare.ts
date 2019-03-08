@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
-import { CountryDetailsService } from './services/countryDetails.service';
-import { VenuesListService } from './services/venuesList.service';
+import { CountryDetailsService } from './services/country-details.service';
+import { VenuesListService } from './services/venues-list.service';
 import { FileUtils } from './utils/file.utils';
 import { fscfg, files } from './cfg';
 

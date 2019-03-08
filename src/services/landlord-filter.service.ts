@@ -24,13 +24,12 @@ export class LandlordFilterService {
   }
 
   public freeVenuesIds = (venues: IVenue[]): Promise<string[]> => {
-    const total = venues.length;
     return venues.reduce((p, venue, i) => p.then((freeIds) => {
-      console.log(`Landlord check in progress... ${i + 1}/${total}`);
+      console.log(`Landlord check in progress... ${i + 1}/${venues.length}`);
       return this.checkVenueIsFree(venue)
         .then(free => [...freeIds, ...(free ? [venue.id] : [])])
         // keep venueId if REST call failed for some reason
-        .catch(e => [...freeIds, venue.id]);
+        .catch(() => [...freeIds, venue.id]);
     }), Promise.resolve([]));
   }
 }
