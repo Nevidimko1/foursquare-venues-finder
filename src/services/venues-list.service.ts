@@ -23,9 +23,10 @@ export class VenuesListService {
         }
 
         try {
+          const categories = fscfg.params.categoryId.split(',');
           let d: any[] = data.response.venues;
           d = d.filter((venue: any) => {
-            return venue.categories.filter((category: any) => category.id === fscfg.params.categoryId).length &&
+            return venue.categories.some((category: any) => categories.some(id => id === category.id)) &&
               venue.location.cc === countryCode;
           });
           return Promise.resolve(d);

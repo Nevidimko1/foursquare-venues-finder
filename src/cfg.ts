@@ -18,7 +18,7 @@ export const fscfg = {
   url: 'https://api.foursquare.com/v2/venues/search?',
   country: 'Latvia',
   params: {
-    categoryId: categoryIds[0],
+    categoryId: categoryIds.join(','),
     radius: 100000,
     client_id: tokens.foursquareClientId,
     client_secret: tokens.foursquareClientSecret,
