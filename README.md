@@ -29,7 +29,7 @@ Find foursquare venues by country and categoryId
 ]
 ```
 
-./data/used.json is manually populated list of ignored venueId's (venues with such ids won't be added into free.json). Ex.
+./data/used.json is a list of ignored venueId's (venues with such ids won't be added into free.json). Ex.
 ```json
 [
   "57dd7c53498e8c523457368e"
